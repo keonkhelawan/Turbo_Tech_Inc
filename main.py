@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask_login import LoginManager, current_user
+from flask_login import LoginManager, current_user, login_user, login_required, logout_user
 from flask_uploads import DOCUMENTS, IMAGES, TEXT, UploadSet, configure_uploads
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -16,12 +16,14 @@ from App.controllers import (
 
 from App.views import (
     user_views,
-    api_views
+    api_views,
+    profile_views
 )
 
 views = [
     user_views,
-    api_views
+    api_views,
+    profile_views
 ]
 
 def add_views(app, views):
@@ -60,3 +62,7 @@ def create_app(config={}):
 
 app = create_app()
 migrate = get_migrate(app)
+
+
+if __name__=='__main__':
+    app.run (host='0.0.0.0', port=8080, debug=True)

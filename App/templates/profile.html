@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block title %}profile{% endblock %}
+{% block page %}webpage name coming soon{% endblock %}
+
+
+{{ super() }}
+
+{% block content %}
+    
+
+    <main  class="row">
+       <section class="col s8">
+           <section class="row">
+               <h1>Welcome</h1>
+               <h5>Enter your courses and search for available jobs</h5>
+           </section>
+
+           <section class="row" style="padding: 8em">  
+            <form>
+               <div class="col s4"> 
+                  <input placeholder="add course" id="courses" type="text" class="validate">
+                  <label for="courses"></label>
+               </div>
+               <div class="col s4">
+                <button class="btn waves-effect" type="submit" name="action">add</button>
+               </div>
+            </form>
+           </section>
+       </section>
+
+       <div style="padding: 30px 0px 0px 0px">
+       <section class="col s4" >
+         <div class="card blue">
+            <section class="row" style="padding: 0px 0px 0px 40px">
+               <h1><u>Courses</u></h1>
+            </section>
+
+            <section class="row" style="padding: 0px 0px 10px 30px">
+               <form>
+                 <div style="overflow-y: scroll" >
+                   <p>course 1</p>
+                   <p>course 2</p>
+                   <p>course 3</p>
+                   <p>course 4</p>
+                   <p>course 5</p>
+                   <p>course 6</p>
+                   <p>course 7</p>
+                   <p>course 8</p>
+                   <p>course 9</p>
+                   <p>course 10</p>
+                   <p>course 11</p>
+                  </div>
+
+                 <div style="padding: 0px 0px 0px 70px">
+                   <button class="btn waves-effect" type="submit" name="action">search jobs</button>
+                 </div>
+               </form>
+            </section>   
+         </div>         
+       </section>
+       </div>
+
+    </main>
+{% endblock %}
