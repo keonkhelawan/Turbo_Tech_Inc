@@ -1,10 +1,33 @@
 {% extends "layout.html" %}
-{% block title %}Flask MVC App{% endblock %}
-{% block page %}Flask MVC App{% endblock %}
+{% block title %}Main Jobs{% endblock %}
+{% block page %}Full Job List{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+<div class="row">
+    <table class="col m10 offset-m1">
+     <thead> 
+      <tr>
+        <th>Job Position</th>
+        <th>Job Description</th>
+        <th>Job requirements</th>
+        <th>Industry</th>
+        <th>Sub Category</th>
+      </tr>
+     </thead>
+
+     <tbody>
+      {% for data in jobData %}
+      <tr>
+        <td>{{ data.position }}</td>
+        <td>{{ data.description }}</td>
+        <td>{{ data.requirements }}</td>
+        <td>{{ data.industry }}</td>
+        <td>{{ data.subCategory }}</td>
+      </tr>
+      {% endfor %}
+     </tbody> 
+    </table>
+  </div>
 {% endblock %}
