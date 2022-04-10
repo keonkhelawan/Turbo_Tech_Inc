@@ -1,3 +1,26 @@
+<!--<section class="row" style="padding: 0px 0px 10px 30px">
+   <form>
+     <div style="overflow-y: scroll; height: 45vh" >
+       <p>course 1</p>
+       <p>course 2</p>
+       <p>course 3</p>
+       <p>course 4</p>
+       <p>course 5</p>
+       <p>course 6</p>
+       <p>course 7</p>
+       <p>course 8</p>
+       <p>course 9</p>
+       <p>course 10</p>
+      </div>
+
+     <div style="padding: 0px 0px 0px 70px">
+       <button class="btn purple waves-effect" type="submit" name="action">search jobs</button>
+     </div>
+   </form>
+</section> -->
+
+
+
 {% extends "layout.html" %}
 {% block title %}profile{% endblock %}
 {% block page %}webpage name coming soon{% endblock %}
@@ -6,23 +29,23 @@
 {{ super() }}
 
 {% block content %}
-    
-
-    <main  class="row">
+   <main  class="row">
        <section class="col s8">
            <section class="row">
-               <h1>Welcome</h1>
-               <h5>Enter your courses and search for available jobs</h5>
+            {% if current_user.is_authenticated %}
+            <h3> Welcome {{ current_user.username }}! </h3>
+            {% endif %}
+            <h5>Enter your courses and search for available jobs</h5>
            </section>
 
            <section class="row" style="padding: 8em">  
-            <form>
+            <form method="POST" action="/profile">
                <div class="col s4"> 
-                  <input placeholder="add course" id="courses" type="text" class="validate">
-                  <label for="courses"></label>
+                  <input placeholder="add course" name="text" type="text" class="validate">
+                  <label for="text"></label>
                </div>
                <div class="col s4">
-                <button class="btn waves-effect" type="submit" name="action">add</button>
+                <button class="btn blue waves-effect" type="submit" >add</button>
                </div>
             </form>
            </section>
@@ -34,30 +57,30 @@
             <section class="row" style="padding: 0px 0px 0px 40px">
                <h1><u>Courses</u></h1>
             </section>
-
-            <section class="row" style="padding: 0px 0px 10px 30px">
-               <form>
-                 <div style="overflow-y: scroll" >
-                   <p>course 1</p>
-                   <p>course 2</p>
-                   <p>course 3</p>
-                   <p>course 4</p>
-                   <p>course 5</p>
-                   <p>course 6</p>
-                   <p>course 7</p>
-                   <p>course 8</p>
-                   <p>course 9</p>
-                   <p>course 10</p>
-                  </div>
-
-                 <div style="padding: 0px 0px 0px 70px">
-                   <button class="btn waves-effect" type="submit" name="action">search jobs</button>
-                 </div>
-               </form>
-            </section>   
-         </div>         
-       </section>
-       </div>
-
-    </main>
+         </div>
+        <div class="container-card"> 
+         <form method="POST" action="">
+            <ul>
+               {% if current_user.is_authenticated %}
+                  {% for course in courses %}
+                     <li>
+                        {{course.courseCode}} 
+                        <a href="/profile/{{course.courseId}}">DELETE</a>  
+                     </li>
+                  {% endfor %}
+               {% endif %}
+            </ul>
+            <div style="padding: 0px 0px 0px 70px">
+               <button class="btn purple waves-effect" type="submit" name="action">search jobs</button>
+            </div>
+         </form>
+        </div>
+      </section>
+      </div>
+   </main>
 {% endblock %}
+
+
+   
+
+   
