@@ -18,15 +18,28 @@ from App.views import (
     user_views,
     api_views,
     profile_views,
-    signup_views
+    list_views,
+    signup_views,
+    logout_views
 )
 
 views = [
     user_views,
     api_views,
     profile_views,
-    signup_views
+    list_views,
+    signup_views,
+    logout_views
 ]
+
+from App.models import User
+''' Begin Flask Login Functions '''
+login_manager = LoginManager()
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
+''' End Flask Login Functions '''
 
 def add_views(app, views):
     for view in views:
@@ -56,6 +69,7 @@ def create_app(config={}):
     app.config['UPLOADED_PHOTOS_DEST'] = "App/uploads"
     photos = UploadSet('photos', TEXT + DOCUMENTS + IMAGES)
     configure_uploads(app, photos)
+    login_manager.init_app(app)
     add_views(app, views)
     create_db(app)
     setup_jwt(app)
@@ -64,7 +78,6 @@ def create_app(config={}):
 
 app = create_app()
 migrate = get_migrate(app)
-
 
 if __name__=='__main__':
     app.run (host='0.0.0.0', port=8080, debug=True)

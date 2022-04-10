@@ -1,33 +1,54 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Login Form</title>
+<!--<form class="card col s12" method="" action="" style="padding:1em">
 
-    </head>
+  <div class="row">
+    <div class="input-field col s12">
+      <input placeholder="Placeholder" name="username" type="text" class="validate">
+      <label for="first_name">Username</label>
+    </div>
+  </div>
 
-    <body>
-        
-            <h3>Login Here</h3>
+  <div class="row">
+    <div class="input-field col s12">
+      <input name="password" type="password" class="validate">
+      <label for="password">Password</label>
+    </div>
+  </div>
 
-            <form action="login.php" method="post">
+  <div style="padding-left: 40%">
+    <input type="submit" class="blue text-white btn">
+  </div>
 
-                <table>
-                    <tr>
-                      <td>Username:</td>
-                      <td><input type="text" name="user" placeholder="Enter name Here"></td>
-                    </tr>
-                    <tr>
-                      <td>Password:</td>
-                      <td><input type="password" name="user_pass" placeholder="Enter Password Here"></td>
-                    </tr>
-                    
-                    <tr>
-                       <td><input type="submit" name="submit" value="Login"></td>
-                       
-                    </tr>
-                  </table>
-        
+</form> -->
 
-    </body>
+{% extends "layout.html" %}
+{% block title %}Login Page{% endblock %}
+{% block page %}Login{% endblock %}
 
-</html>
+{{ super() }}
+
+{% block content %}
+  <section class="container">
+      <h3>Login Form</h3>
+      <p>No account a yet? <a href="/signup"><strong>Signup</strong></a></p>
+  </section>  
+
+  <main class="container">
+    <form class="col s12 m8 offset-m2" method="POST" action="/">
+      {{ form.csrf_token }}
+
+      <div class="input-field col s12 m8 offset-m2"> 
+        {{ form.username(size=20, class="validate") }}
+        {{ form.username.label }}
+      </div>
+
+      <div class="input-field col s12 m8 offset-m2">
+        {{ form.password(size=20, class="validate") }}
+        {{ form.password.label }}
+      </div>
+
+      <div class="input-field col s12 m8 offset-m2">
+        {{form.submit}}
+      </div> 
+    </form>
+  </main> 
+{% endblock %}
