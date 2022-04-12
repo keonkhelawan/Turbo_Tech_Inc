@@ -59,7 +59,7 @@
             </section>
          </div>
         <div class="container-card"> 
-         <form method="POST" action="">
+         <form method="GET" action="/list">
             <ul>
                {% if current_user.is_authenticated %}
                   {% for course in courses %}

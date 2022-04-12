@@ -11,8 +11,8 @@ class Job(db.Model):
   def toDict(self):
     return{
       'Job Position': self.position,
-      'Job Description': self.description,
-      'Job Requirements': self.requirements,
       'Industry': self.industry,
-      'Sub Category': self.subCategory
+      'Sub Category': self.subCategory,
+      'Job Requirements': self.requirements,
+      'Job Description': self.description
     }

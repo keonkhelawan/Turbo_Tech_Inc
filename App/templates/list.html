@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="row">
-    <table class="col m10 offset-m1">
+    <table class="col m12 offset-m1">
      <thead> 
       <tr>
         <th>Job Position</th>
@@ -21,10 +21,10 @@
       {% for data in jobData %}
       <tr>
         <td>{{ data.position }}</td>
-        <td>{{ data.description }}</td>
-        <td>{{ data.requirements }}</td>
         <td>{{ data.industry }}</td>
         <td>{{ data.subCategory }}</td>
+        <td>{{ data.requirements }}</td>
+        <td>{{ data.description }}</td>
       </tr>
       {% endfor %}
      </tbody> 
