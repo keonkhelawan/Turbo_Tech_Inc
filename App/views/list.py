@@ -6,10 +6,12 @@ from App.models import Job
 from App.models import Course
 from App.controllers import course_code_splitting
 
-'''@list_views.route('/list', methods=['GET'])
-def get_user_page():
-    list_of_jobs = Job.query.all()
-    return render_template('list.html', jobData=list_of_jobs)'''
+@list_views.route('/jobs', methods=['GET'])
+@login_required
+def list_all_jobs():
+    all_jobs = Job.query.all()
+    return render_template('jobs.html', jobData=all_jobs)
+
 
 
 @list_views.route('/list', methods=['GET'])
