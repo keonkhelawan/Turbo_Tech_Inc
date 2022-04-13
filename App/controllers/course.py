@@ -39,7 +39,7 @@ def course_code_splitting(job_requirements, user_courses):
         required_course_count = required_course_count + 1
         
         # split up optional job requirements for further comparisons
-        optional_course = each.split("or")
+        optional_course = each.split(" or ")
         
         # iterate through each optional job requirement and compare all user courses
         for eachOption in optional_course:

@@ -2,7 +2,7 @@ from main import app
 from App.database import db
 from App.models import Job
 
-data = open('./App/jobs.txt')
+data = open('./App/job_files.csv')
 
 # headings in file
 line = data.readline()

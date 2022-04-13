@@ -29,6 +29,12 @@
 {{ super() }}
 
 {% block content %}
+
+<style>
+   #del{margin-left: 10%; color: white} 
+   #del:hover{color: purple}     
+</style>
+
    <main  class="row">
        <section class="col s8">
            <section class="row">
@@ -44,6 +50,7 @@
                   <input placeholder="add course" name="text" type="text" class="validate">
                   <label for="text"></label>
                </div>
+               
                <div class="col s4">
                 <button class="btn blue waves-effect" type="submit" >add</button>
                </div>
@@ -54,26 +61,26 @@
        <div style="padding: 30px 0px 0px 0px">
        <section class="col s4" >
          <div class="card blue">
-            <section class="row" style="padding: 0px 0px 0px 40px">
+            <div class="row" style="padding: 0px 0px 0px 40px">
                <h1><u>Courses</u></h1>
-            </section>
-         </div>
-        <div class="container-card"> 
-         <form method="GET" action="/list">
+            </div>
+
             <ul>
                {% if current_user.is_authenticated %}
                   {% for course in courses %}
-                     <li>
-                        {{course.courseCode}} 
-                        <a href="/profile/{{course.courseId}}">DELETE</a>  
+                     <li style="padding-left: 25%">
+                        <b>{{course.courseCode}}</b> 
+                        <a id="del" href="/profile/{{course.courseId}}">DELETE</a> 
                      </li>
                   {% endfor %}
                {% endif %}
             </ul>
-            <div style="padding: 0px 0px 0px 70px">
+
+            <form action="/list">
+            <div style="margin-left: 28%">
                <button class="btn purple waves-effect" type="submit" name="action">search jobs</button>
             </div>
-         </form>
+            </form>
         </div>
       </section>
       </div>
