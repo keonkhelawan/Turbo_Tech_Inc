@@ -2,9 +2,9 @@ from main import app
 from App.database import db
 from App.models import Job
 
-data = open('./App/jobs.txt')
+data = open('./App/job_files.csv')
 
-# headings
+# headings in file
 line = data.readline()
 
 while True:
@@ -18,10 +18,12 @@ while True:
     job_list = Job(
                     jobId = jobInfo[0],
                     position = jobInfo[1],
-                    description = jobInfo[5],
-                    requirements = jobInfo[2],
                     industry = jobInfo[3],
-                    subCategory = jobInfo[4]
+                    subCategory = jobInfo[4],
+                    requirements = jobInfo[2],
+                    description = jobInfo[5]
+                    
+                    
                   )
 
     db.session.add(job_list)
