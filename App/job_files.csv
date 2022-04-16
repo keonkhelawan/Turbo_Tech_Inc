@@ -1,7 +1,7 @@
-Job Id,Job Position,course requirements,Industry,SubCategory,Description
-1,Web Developer,INFO 1601; INFO 2602; INFO 2604,Technology,Software,Responsible for creating the technical structure of websites. Making sure web pages are easily accessed and navigated by end users.
-2,Software Developer,COMP 1602; COMP 2601; COMP 2605,Technology,Software,Responsible for creating software programs that allow users to perform various tasks over a variety of different devices(pc and/or mobile phones).
-3,Database Administrator,INFO 3606 or INFO 3611; COMP 1601; COMP 2605,Technology,Database,Responsible for developing and maintaining data resources that are used to store and retrieve critical information.
-4,Computer System Analyst,COMP 1602; COMP 2601; COMP 2605,Technology,Hardware/Software,Responsible for assessing computer systems and recommending changes to harware and software for maximum computer efficiency.
-5,Computer Network Architect,INFO 3605; INFO 3607; COMP 1602; COMP 2601,Technology,Networking,Responsible for designing/implementing/maintaining networking and data communication systems.
-6,Computer & Information Systems Manager,INFO 2601; COMP 1601; COMP 2601; COMP 2605,Technology,Hardware/Software,Responsible for analyzing all technology needs. Overseeing the implementation of hardware/software/networking and other technology needs.
+Job Id,Job Position,Competencies,Industry,SubCategory,Description
+1,Web Developer,frontend-2; backend-2; devops-1; security-2,Technology,Software,Responsible for creating the technical structure of websites. Making sure web pages are easily accessed and navigated by end users.
+2,Software Developer,programming-2; architecture-2; database-1; devops-1,Technology,Software,Responsible for creating software programs that allow users to perform various tasks over a variety of different devices(pc and/or mobile phones).
+3,Database Administrator,database-2; security-2; programming-2; devops-1,Technology,Database,Responsible for developing and maintaining data resources that are used to store and retrieve critical information.
+4,Computer System Analyst,programming-2; architecture-2; database-1,Technology,Hardware/Software,Responsible for assessing computer systems and recommending changes to harware and software for maximum computer efficiency.
+5,Computer Network Architect,networking-2; programming-2; architecture-2,Technology,Networking,Responsible for designing/implementing/maintaining networking and data communication systems.
+6,Computer & Information Systems Manager,architecture-2; programming-2; networking-1; database-1,Technology,Hardware/Software,Responsible for analyzing all technology needs. Overseeing the implementation of hardware/software/networking and other technology needs.

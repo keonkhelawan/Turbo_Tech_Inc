@@ -1,36 +1,43 @@
 from flask import Blueprint, render_template
-from flask_login import LoginManager, current_user, login_user, login_required, logout_user
+from flask_login import current_user, login_required
 list_views = Blueprint('list_views', __name__, template_folder='../templates')
 
-from App.models import Job
+from App.models import Job, Skills
 from App.models import Course
-from App.controllers import course_code_splitting
+from App.controllers import make_skill_list, list_jobs
 
+#renders all jobs in the database when the "Jobs" button is pressed
 @list_views.route('/jobs', methods=['GET'])
 @login_required
 def list_all_jobs():
     all_jobs = Job.query.all()
+    '''all_courses = Course.query.all()'''
     return render_template('jobs.html', jobData=all_jobs)
 
 
-
+# list all jobs that the current user is qualified for
 @list_views.route('/list', methods=['GET'])
 @login_required
 def collect_courses():
-    course = Course.query.filter_by(userId=current_user.id).all()
-    list_of_jobs = Job.query.all()
+    # adding user's skills to "courseSkills_list" and avoiding any duplicates
+    courseSkills = Skills.query.filter_by(userId=current_user.id).all()
 
-    courseCode_list = []
+    skills = []
+    for each in courseSkills:
+        skills.append(each.courseSkills)
+
+    courseSkills_list = make_skill_list(skills)  
+
+
+    # comparing user's skills to skill requirements of each job within the database
+    list_of_jobs = Job.query.all()
     jobs_to_render = []
 
-    for eachCourse in course:
-        courseCode_list.append(eachCourse.courseCode)
-
     for eachJob in list_of_jobs:
-        result = course_code_splitting(eachJob.requirements, courseCode_list)
+        result = list_jobs(eachJob.competencies, courseSkills_list)
 
-        if (result=="qualified"):
+        if (result == "qualified"):
             jobs_to_render.append(eachJob)
 
-    return render_template('list.html', jobData=jobs_to_render)        
 
+    return render_template('list.html', jobData=jobs_to_render)        
