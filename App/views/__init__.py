@@ -4,3 +4,4 @@ from .profile import *
 from .list import *
 from .signup import *
 from .logout import *
+from .skills import *

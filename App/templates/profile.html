@@ -1,29 +1,6 @@
-<!--<section class="row" style="padding: 0px 0px 10px 30px">
-   <form>
-     <div style="overflow-y: scroll; height: 45vh" >
-       <p>course 1</p>
-       <p>course 2</p>
-       <p>course 3</p>
-       <p>course 4</p>
-       <p>course 5</p>
-       <p>course 6</p>
-       <p>course 7</p>
-       <p>course 8</p>
-       <p>course 9</p>
-       <p>course 10</p>
-      </div>
-
-     <div style="padding: 0px 0px 0px 70px">
-       <button class="btn purple waves-effect" type="submit" name="action">search jobs</button>
-     </div>
-   </form>
-</section> -->
-
-
-
 {% extends "layout.html" %}
 {% block title %}profile{% endblock %}
-{% block page %}webpage name coming soon{% endblock %}
+{% block page %}Job Hunter{% endblock %}
 
 
 {{ super() }}
@@ -39,7 +16,7 @@
        <section class="col s8">
            <section class="row">
             {% if current_user.is_authenticated %}
-            <h3> Welcome {{ current_user.username }}! </h3>
+            <h3> Hi {{ current_user.username }}! </h3>
             {% endif %}
             <h5>Enter your courses and search for available jobs</h5>
            </section>
@@ -70,7 +47,7 @@
                   {% for course in courses %}
                      <li style="padding-left: 25%">
                         <b>{{course.courseCode}}</b> 
-                        <a id="del" href="/profile/{{course.courseId}}">DELETE</a> 
+                        <a id="del" href="/profile/{{course.id}}">DELETE</a> 
                      </li>
                   {% endfor %}
                {% endif %}

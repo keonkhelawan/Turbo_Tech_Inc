@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Skills{% endblock %}
+{% block page %}Your Current Skills{% endblock %}
+
+{{ super() }}
+
+{% block content %}
+<div class="row">
+    <table class="col m12 offset-m1">
+     <thead> 
+      <tr>
+        <th>Course Name</th>
+        <th>Course Code</th>
+        <th>Skills Acquired</th>
+        <th>Course Description</th>
+      </tr>
+     </thead>
+
+     <tbody>
+      {% for data in skillsList %}
+      <tr>
+        <td>{{ data.courseName }}</td>
+        <td>{{ data.courseCode }}</td>
+        <td>{{ data.competencyOutcome }}</td>
+        <td>{{ data.courseDescription}}</td>
+      </tr>
+      {% endfor %}
+     </tbody> 
+    </table>
+  </div>
+{% endblock %}

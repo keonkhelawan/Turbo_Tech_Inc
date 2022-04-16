@@ -1,13 +1,17 @@
 from App.database import db
 
 class Course(db.Model):
-    courseId = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    courseName = db.Column(db.String(100), nullable=False)
     courseCode = db.Column(db.String(20), nullable=False)
-    userId = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    competencyOutcome = db.Column(db.String(200), nullable=False)
+    courseDescription = db.Column(db.String(300), nullable=False)
+    
 
     def toDict(self):
         return {
-            'course id': self.courseId,
+            'course name': self.courseName,
             'course code': self.courseCode,
-            'userid': self.userId,
+            'competency Outcome': self.competencyOutcome,
+            'course description': self.courseDescription
         }

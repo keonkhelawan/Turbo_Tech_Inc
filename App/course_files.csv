@@ -1,0 +1,14 @@
+Course Name,Course Code,Competency Outcome,Description
+Platform Technologies 1,INFO 2603,architecture-2,advanced computer concepts
+Intro to WWW,INFO 1601,frontend-2; devops-1,client side and web fundermentals
+Object-Oriented Programming 1,COMP 2603,programming-2,intermediate programming concepts
+Computer Programming 2,COMP 1602,programming-2,intermediate programming concepts
+Web Programming and Technologies 1,INFO 2602,backend-2,server side concepts
+Computer Architecture,COMP 2601,architecture-2,advanced computer concepts
+Enterprise Database Systems,COMP 2605,database-1; devops-1,fundermental database concepts
+Cloud Computing,INFO 3606,database-1; devops-1,advanced database concepts
+Networking Technologies Fundermentals,INFO 2601,networking-1,fundermental networking concepts
+Fundamentals of WAN,INFO 3607,networking-2,advanced networking concepts and fundermental WAN concepts
+Fundamentals of LAN,INFO 3605,networking-2,advanced networking concepts and fundermental LAN concepts
+Information System Security,INFO 2604,security-2,a range of fundamental and intermediate computer security concepts.
+Database Administration for Professionals,INFO 3611,database-2,advanced database concepts
