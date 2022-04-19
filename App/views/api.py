@@ -18,7 +18,6 @@ def login_current_user():
         data = request.form
         user = User.query.filter_by(username=data['username']).first()
         if user and user.check_password(data['password']):
-            flash('Logged in successfully.')
             login_user(user)
             return redirect(url_for('profile_views.get_user_page'))
     flash('Invalid credentials')

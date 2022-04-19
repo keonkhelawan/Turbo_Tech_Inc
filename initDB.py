@@ -1,14 +1,15 @@
 from main import app
 from App.database import db
-from App.models import Job
+from App.models import Job, Course
 
-data = open('./App/job_files.csv')
+# initialize jobs database
+job_data = open('./App/job_files.csv')
 
 # headings in file
-line = data.readline()
+job_heading_line = job_data.readline()
 
 while True:
-    jobData = data.readline()
+    jobData = job_data.readline()
 
     if not jobData:
         break
@@ -16,15 +17,42 @@ while True:
     jobInfo = jobData.split(",")
     
     job_list = Job(
-                    jobId = jobInfo[0],
+                    id = jobInfo[0],
                     position = jobInfo[1],
+                    competencies = jobInfo[2],
                     industry = jobInfo[3],
                     subCategory = jobInfo[4],
-                    requirements = jobInfo[2],
                     description = jobInfo[5]
-                    
-                    
                   )
 
     db.session.add(job_list)
     db.session.commit()              
+
+job_data.close()
+
+
+# initialize course database
+course_data = open('./App/course_files.csv')
+
+# headings in file
+course_heading_line = course_data.readline()
+
+while True:
+    courseData = course_data.readline()
+
+    if not courseData:
+        break
+
+    courseInfo = courseData.split(",")
+    
+    course_list = Course(
+                    courseName = courseInfo[0],
+                    courseCode = courseInfo[1],
+                    competencyOutcome = courseInfo[2],
+                    courseDescription = courseInfo[3]
+                  )
+
+    db.session.add(course_list)
+    db.session.commit()
+
+course_data.close()    

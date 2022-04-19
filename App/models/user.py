@@ -8,7 +8,7 @@ class User(db.Model, UserMixin):
     username =  db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
-    courses = db.relationship('App.models.course.Course', backref='user', lazy=True, cascade="all, delete-orphan")
+    courses = db.relationship('App.models.skills.Skills', backref='user', lazy=True, cascade="all, delete-orphan")
 
     def __init__(self, username, email, password):
         self.username = username

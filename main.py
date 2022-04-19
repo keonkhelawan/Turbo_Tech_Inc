@@ -20,7 +20,8 @@ from App.views import (
     profile_views,
     list_views,
     signup_views,
-    logout_views
+    logout_views,
+    skills_views
 )
 
 views = [
@@ -29,7 +30,8 @@ views = [
     profile_views,
     list_views,
     signup_views,
-    logout_views
+    logout_views,
+    skills_views
 ]
 
 from App.models import User
