@@ -5,8 +5,14 @@
 {{ super() }}
 
 {% block content %}
+<style>
+  
+  h2{
+    font-family: "Space Mono", monospace;
+  }
+</style>
   <section class="container">
-      <h2>Welcome Back</h2>
+      <h2>Login</h2>
       <p>No account as yet? <a href="/signup"><strong>Signup</strong></a></p>
   </section>  
 
@@ -14,12 +20,14 @@
     <form class="col s12 m8 offset-m2" method="POST" action="/">
       {{ form.csrf_token }}
 
-      <div class="input-field col s12 m8 offset-m2"> 
+      <div class="input-field col s12 m8 offset-m2">
+        <i class="material-icons prefix">account_circle</i> 
         {{ form.username(size=20, class="validate") }}
         {{ form.username.label }}
       </div>
 
       <div class="input-field col s12 m8 offset-m2">
+        <i class="material-icons prefix">lock</i>
         {{ form.password(size=20, class="validate") }}
         {{ form.password.label }}
       </div>
