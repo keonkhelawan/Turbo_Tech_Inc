@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}profile{% endblock %}
 {% block page %}Job Hunter{% endblock %}
+{% block active1 %}active{% endblock %}
 
 
 {{ super() }}
@@ -8,28 +9,53 @@
 {% block content %}
 
 <style>
-   #del{margin-left: 10%; color: white} 
-   #del:hover{color: purple}     
+   #del{margin-left: 10%; color: #039be5} 
+   #del:hover{color: orange}
+
+  h1{
+    font-family: "Space Mono", monospace;
+    text-align: center;
+  }
+  #one{
+    background-color: #039be5;
+    border-left-style: solid;
+    border-width: 10px;
+    border-color: #039be5;
+    box-shadow: 10px 10px 5px grey;
+    color: white;
+  }
+  .card{
+   border-style: solid;
+   border-color: #ff6f00;
+   padding-bottom: 25px;
+  }
+  #three{
+   color: #ff6f00;
+  }
+  li{
+   color: #ff6f00
+  }
+ 
 </style>
 
    <main  class="row">
-       <section class="col s8">
-           <section class="row">
+       <section class="col s7">
+           <section id="one" class= row">
             {% if current_user.is_authenticated %}
-            <h3> Hi {{ current_user.username }}! </h3>
+                   <h1> Hi {{ current_user.username }}! </h1>
             {% endif %}
             <h5>Enter your courses and search for available jobs</h5>
            </section>
 
-           <section class="row" style="padding: 8em">  
+           <section id="two" class="row" style="padding: 8em">  
             <form method="POST" action="/profile">
                <div class="col s4"> 
-                  <input placeholder="add course" name="text" type="text" class="validate">
+                  <input placeholder="Add Course" name="text" type="text" class="validate">
                   <label for="text"></label>
                </div>
                
                <div class="col s4">
-                <button class="btn blue waves-effect" type="submit" >add</button>
+                <button class="btn amber darken-4 waves-effect" type="submit" >add</button>
                </div>
             </form>
            </section>
@@ -37,9 +63,9 @@
 
        <div style="padding: 30px 0px 0px 0px">
        <section class="col s4" >
-         <div class="card blue">
-            <div class="row" style="padding: 0px 0px 0px 40px">
-               <h1><u>Courses</u></h1>
+         <div class="card white">
+            <div id="three" class="row" style="padding: 0px 0px 0px 5px">
+               <h1>Courses</h1>
             </div>
 
             <ul>
@@ -55,7 +81,7 @@
 
             <form action="/list">
             <div style="margin-left: 28%">
-               <button class="btn purple waves-effect" type="submit" name="action">search jobs</button>
+               <button class="btn amber darken-4 waves-effect" type="submit" name="action">search jobs</button>
             </div>
             </form>
         </div>
