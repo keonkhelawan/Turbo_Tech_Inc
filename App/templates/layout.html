@@ -10,20 +10,31 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
    
+    <style>
+      .waves-button-input{
+            color: white !important;
+      }
+      body {
+          background-image: url("https://i.ibb.co/HHydYZ1/Search3.png");
+          background-size: cover;
+          font-family: Muli, sans-serif;
+      }
+    </style>
 
   </head>
   <body>
-    <nav class="blue">
+    <nav class="light-blue darken-1">
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
+        <a href="#!" class="brand-logo center"><i class="material-icons">business_center</i>{% block page %}{% endblock %}</a>
         <div class="nav-wrapper">
           {% if current_user.is_authenticated %}
             <ul id="nav-mobile" class="left">
                <!-- <li><a href="/users">Users Jinja</a></li> -->
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/jobs">Jobs</a></li>
-                <li><a href="/skills">My Skills</a></li>
+                <li class="{% block active1 %}{% endblock %}"><a href="/profile">Profile</a></li>
+                <li class="{% block active2 %}{% endblock %}"><a href="/jobs">Jobs</a></li>
+                <li class="{% block active3 %}{% endblock %}"><a href="/skills">My Skills</a></li>
             </ul>
           
             <ul class="right" >

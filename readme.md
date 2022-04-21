@@ -85,6 +85,7 @@ $ gunicorn App.main:app
 ```
 
 # Deploying
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 You can deploy your version of this app to heroku by clicking on the "Deploy to heroku" link above.
 
 # Initializing the Database
