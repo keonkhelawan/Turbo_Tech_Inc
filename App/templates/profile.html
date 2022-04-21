@@ -12,6 +12,10 @@
    #del{margin-left: 10%; color: #039be5} 
    #del:hover{color: orange}
 
+
+  #one{
+     border-radius: 20px;
+   }
   h1{
     font-family: "Space Mono", monospace;
     text-align: center;
@@ -31,11 +35,45 @@
   }
   #three{
    color: #ff6f00;
+   
+  }
+  #three h1{
+     font-size: 5vw;
+  }
+
+  #searchjobs{
+     width: 10vw;
+     color: blue;
   }
   li{
    color: #ff6f00
   }
  
+  #addcourse{
+     background-color: #039be5;
+     width: 20vw;
+     border-radius: 20px;
+  }
+
+  
+
+  
+
+  #addbutton button{
+     border-radius: 20px;
+  }
+
+  @media(max-width: 700px){
+   #addcourse input{
+     font-size: 12px;
+   }
+   #searchjobs button{
+      color: red;
+      width: 10vw;
+   }
+
+
+  }
 </style>
 
    <main  class="row">
@@ -49,12 +87,12 @@
 
            <section id="two" class="row" style="padding: 8em">  
             <form method="POST" action="/profile">
-               <div class="col s4"> 
+               <div id="addcourse" class="col s4"> 
                   <input placeholder="Add Course" name="text" type="text" class="validate">
                   <label for="text"></label>
                </div>
                
-               <div class="col s4">
+               <div id="addbutton" class="col s4">
                 <button class="btn amber darken-4 waves-effect" type="submit" >add</button>
                </div>
             </form>
@@ -80,7 +118,7 @@
             </ul>
 
             <form action="/list">
-            <div style="margin-left: 28%">
+            <div id="searchjobs" style="margin-left: 28%">
                <button class="btn amber darken-4 waves-effect" type="submit" name="action">search jobs</button>
             </div>
             </form>
